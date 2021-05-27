@@ -2,6 +2,56 @@ package Recursion;
 
 public class QuickSort {
 
+    public static void swap(int arr[], int i, int j) {
+        int tmp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = tmp;
+        return;
+    }
+
+    // Lomuto partition where you do partition in single-pass of the array
+    public static int partitionLomuto(int arr[], int start, int end) {
+
+        int pivot = arr[end];
+
+        int i = start-1;
+        for(int j=start; j<end; j++) {
+            if(arr[j] < pivot) {
+                swap(arr, ++i, j);
+            }
+        }
+
+        swap(arr, ++i, end);
+
+        return i;
+    }
+
+    // Hoare partition which is supposed to be better than Lomuto
+    // it takes lesser comparisons compared to Lomuto
+    public static int partitionHoare(int arr[], int start, int end) {
+
+        int pivot = arr[start];
+        int i = start - 1, j = end + 1;
+
+        while(true) {
+            do {
+                i++;
+            } while (arr[i] < pivot);
+
+            do {
+                j--;
+            } while( arr[j] > pivot);
+
+            if(i >= j) {
+                return j;
+            }
+
+            swap(arr, i, j);
+        }
+
+
+    }
+
     public static int partition(int arr[], int start, int end) {
 
         // assume pivot is the number at the start index
@@ -51,15 +101,13 @@ public class QuickSort {
         return pivot;
     }
 
-
-
     public static void quickSort(int arr[], int start, int end) {
 
         if(end <= start)
             return;
 
         // partition function will return the pivot position
-        int pivot = partition(arr, start, end);
+        int pivot = partitionHoare(arr, start, end);
         quickSort(arr, start, pivot-1);
         quickSort(arr, pivot+1, end);
         return;
