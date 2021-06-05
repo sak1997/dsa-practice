@@ -77,9 +77,10 @@ public class BinaryTreeUse {
 //        System.out.println("No of nodes is : " + NoOfNodes.NoNodes(root));
 //        System.out.println("Largest Node is : " + LargestNode.largestNode(root));
 //        System.out.println("No of leaves is : " + NoOfLeaves.noOfLeaves(root));
-          System.out.println("No of leaves at depth 2 is : ");
-          NodesDepthK.nodesAtDepthK(root, 2);
-
+//          System.out.println("No of leaves at depth 2 is : ");
+//              NodesDepthK.nodesAtDepthK(root, 2);
+        root = RemoveLeafNodes.removeLeafNodes(root);
+        printTree(root);
 
 
     }
