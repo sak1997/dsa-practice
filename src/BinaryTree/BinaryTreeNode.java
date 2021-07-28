@@ -2,8 +2,8 @@ package BinaryTree;
 
 public class BinaryTreeNode<T> {
 
-    T data;
-    BinaryTreeNode<T> left, right;
+    public T data;
+    public BinaryTreeNode<T> left, right;
 
     public BinaryTreeNode() {
         data = null;

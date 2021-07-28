@@ -36,7 +36,6 @@ public class StackUsingArray {
         if(size == top+1) {
             doubleSize();
             System.out.println("resize done!");
-//            throw new StackFullException();
         }
 
         data[++top] = elm;
